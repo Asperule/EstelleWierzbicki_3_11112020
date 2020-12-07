@@ -1,0 +1,120 @@
+
+@mixin prop_page{
+        position: absolute;
+        &__restos{
+                background-color: $bg-color;
+                max-width: 480px;
+                display:flex;
+                flex-direction:column;
+                border-top-left-radius:20px;
+                border-top-right-radius:20px;
+                position: relative; 
+                opacity:1;
+                h1 {
+                    font-family: 'Cooper';
+                    font-size:1.8em;
+                    letter-spacing:-1px;
+                }
+                h2 {
+                    font-size:1.2em;
+                }
+                &__titre{
+                    width:100%;
+                    padding:20px;
+                    i {
+                        font-size:30px;
+                          }
+                        
+                    }
+                 
+            }
+}
+$apparition-duree: 1s;
+@mixin anim-apparition {
+    animation: apparition $apparition-duree both;/*apparition progressive à l'ouverture*/
+}
+@mixin prop-big-block{
+    height:300px;
+    margin-bottom:40px;
+    opacity:0;
+    @include anim-apparition;
+    h2 {
+        text-transform: uppercase;
+        font-weight:normal;
+    }
+    .descrip{
+        position: relative;
+        height:100%;
+        width:100%;
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        padding:10px;
+        h3{
+            font-weight:bold;
+        }
+        &__menu{
+            width:auto;
+            display:flex;
+            flex-direction:column;
+            justify-content: space-between;
+        }
+        &__prix{
+            align-self: flex-end;
+            font-weight:bold;
+            transition: transform 600ms;
+            transform-origin: -150px;
+            position:absolute;
+            right: -50px;
+        }       
+     }
+}
+@mixin prop-middle-block{
+    height:70px;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    overflow:hidden;
+    @include border-stand;
+    @include border-shadow;
+    @include border-prop;
+}
+@mixin border-stand{
+    margin:15px;
+}
+@mixin border-shadow {
+    box-shadow: 2px 2px 10px #D5CCC2;
+    &:hover{
+        background-color: lighten($btn-plats-color, 10%);
+        box-shadow: 3px 3px 20px darken($btn-plats-color, 20%);
+    }
+
+}
+@mixin border-prop {
+    border-radius: 15px;}
+@mixin btn-heart-gradient {
+    position: relative;
+    display: flex;
+    .empty{
+        color:black;
+        position: absolute;
+        right: 15px;
+        font-style:normal;
+    }
+    .gradient{
+         background: -webkit-linear-gradient($color-primary, $color-secondary);
+         color: transparent;
+        -webkit-background-clip: text;
+        position:absolute;
+        right: 15px;
+        opacity:0;  
+    }
+    i {
+        font-size:30px;}
+    .fa-heart{
+         &:hover{/*comment aurait il fallu designer .gradient pour qu'il soit la seule cible animation?*/
+            @include anim-apparition;
+          } 
+       
+      }
+}

@@ -1,0 +1,106 @@
+aside,.fonctionnement a, #bloc_restaurants { 
+    background-color: $bg-color;
+  }
+.reservation h1 {
+    margin-top:30px;
+  }
+aside{
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    form{
+        height:40px;
+        background-color:#e5e5e5;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        input{
+            background-color:#e5e5e5;
+            border:none;
+            font-size: 1em;
+            text-align: center;
+            width:auto;
+            &::placeholder{
+                    color:black;
+                  }
+            }
+        }
+      }
+.fonctionnement{
+    margin-top: 50px;
+    h2{
+        margin-left:15px;
+        margin-bottom:15px;
+      }
+    li{
+        display:flex;
+        align-items: baseline;
+        counter-increment:li;
+        &::before{
+            content: counter(li);
+            display: inline-block;
+            width:30px;
+            height:30px;
+            margin:auto;
+            border: solid 2px $color-primary;
+            border-radius:30px;
+            background-color: $color-primary;
+            font-size:1.5em;
+            color: white;
+            text-align: center;/*pour centrer numerotation*/
+            z-index: 1;
+        }
+    }
+    a {
+        height: 70px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius:20px;
+        box-shadow: 2px 2px 10px #D5CCC2;
+        margin-left:-20px;
+        margin-bottom:30px;
+        font-weight: bold;
+        @include border-prop;
+        i{
+            margin-right:30px;
+        }
+    }
+}
+#bloc_restaurants{
+    margin-top:50px;
+    padding-top:50px;
+    padding-bottom:30px;
+}
+#restaurants{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.element-resto {
+    height:250px;
+    background-color:$btn-plats-color;
+    @include border-stand;
+    @include border-shadow;
+    overflow:hidden;
+    position:relative;
+    img {
+        height:180px;
+        width:100%;
+        object-fit: cover;
+    }
+    &__contenu{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin:0px 15px 15px 15px;
+        @include btn-heart-gradient;
+        i{
+            font-size: 1.5em;
+            font-style: normal;
+        }
+
+     }
+}
+
