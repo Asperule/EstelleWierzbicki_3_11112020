@@ -15,8 +15,24 @@
 
 #contenu {
   max-width: 480px;
+  width: 100%;
+  margin: auto;
 }
 
+@media all and (min-width: 480px) and (max-width: 1280px) {
+  aside {
+    flex-direction: row;
+    text-align: center;
+  }
+
+  .fonctionnement li {
+    width: 26%;
+  }
+
+  #restaurants {
+    width: 40%;
+  }
+}
 @font-face {
   font-family: "Raleway";
   src: url("../polices/Raleway-VariableFont_wght.ttf") format("truetype");
@@ -206,21 +222,23 @@ aside form input::placeholder {
   color: black;
 }
 
+h2 {
+  margin: 15px;
+}
+
 .fonctionnement {
   margin-top: 50px;
 }
-.fonctionnement h2 {
-  margin-left: 15px;
-  margin-bottom: 15px;
-}
 .fonctionnement li {
   display: flex;
-  align-items: baseline;
   counter-increment: li;
+  margin-bottom: 30px;
 }
 .fonctionnement li::before {
   content: counter(li);
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-self: start;
   width: 30px;
   height: 30px;
   margin: auto;
@@ -229,8 +247,6 @@ aside form input::placeholder {
   background-color: #9356DC;
   font-size: 1.5em;
   color: white;
-  text-align: center;
-  /*pour centrer numerotation*/
   z-index: 1;
 }
 .fonctionnement a {
@@ -240,11 +256,14 @@ aside form input::placeholder {
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  box-shadow: 2px 2px 10px #D5CCC2;
   margin-left: -20px;
-  margin-bottom: 30px;
   font-weight: bold;
   border-radius: 15px;
+  box-shadow: 2px 2px 10px #D5CCC2;
+}
+.fonctionnement a:hover {
+  background-color: white;
+  box-shadow: 3px 3px 20px #c1d0d0;
 }
 .fonctionnement a i {
   margin-right: 30px;
@@ -267,6 +286,7 @@ aside form input::placeholder {
   background-color: #FBFCFC;
   margin: 15px;
   box-shadow: 2px 2px 10px #D5CCC2;
+  border-radius: 15px;
   overflow: hidden;
   position: relative;
 }
@@ -447,6 +467,7 @@ aside form input::placeholder {
 .separation-line {
   width: 3em;
   border-top: solid 3px #99E2D0;
+  margin: 15px;
 }
 
 .second-btn {

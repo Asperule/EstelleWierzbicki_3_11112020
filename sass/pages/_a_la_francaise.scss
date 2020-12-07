@@ -31,6 +31,7 @@
 .separation-line{
     width: 3em;
     border-top: solid 3px $color-tertiary;
+    @include border-stand;
     
 }
 .second-btn{
