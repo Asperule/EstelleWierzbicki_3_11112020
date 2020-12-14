@@ -4,3 +4,11 @@ $color-secondary:#FF79DA ;
 $color-tertiary:#99E2D0;
 $bg-color:#F2F2F2;
 $btn-plats-color:#FBFCFC;
+
+$breakpoints: (
+    "phone-down": 500px,
+    "tablet-up": 768px,
+    "tablet-down": 900px,
+    "desktop-mix": 1024px,
+    "desktop-max": 1280px,
+);

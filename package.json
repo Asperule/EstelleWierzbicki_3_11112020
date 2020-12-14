@@ -4,7 +4,7 @@
   "description": "projet openclass ohmyfood",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/stylesfood.scss:css/styles.css"
+    "sass": "sass --watch ./sass/stylesfood.scss:./css/styles.css"
   },
   "author": "",
   "license": "ISC"

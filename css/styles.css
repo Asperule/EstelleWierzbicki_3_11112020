@@ -7,6 +7,35 @@
     opacity: 1;
   }
 }
+@keyframes disparition {
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 100%;
+  }
+  80% {
+    opacity: 80%;
+  }
+  100% {
+    opacity: 0%;
+    display: none;
+  }
+}
+@keyframes mov {
+  0% {
+    opacity: 0%;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 50%;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0%;
+    transform: scale(1) rotate(360deg);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +43,7 @@
 }
 
 #contenu {
-  max-width: 480px;
+  max-width: 1280px;
   width: 100%;
   margin: auto;
 }
@@ -23,14 +52,6 @@
   aside {
     flex-direction: row;
     text-align: center;
-  }
-
-  .fonctionnement li {
-    width: 26%;
-  }
-
-  #restaurants {
-    width: 40%;
   }
 }
 @font-face {
@@ -92,12 +113,9 @@ h1 {
   width: 70px;
   height: 100%;
   background-color: #99E2D0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transform: scale(0, 1);
   transform-origin: right 50%;
-  transition: transform 600ms 100ms;
+  transition: transform 1s ease-in-out;
   position: relative;
   overflow: hidden;
 }
@@ -107,7 +125,7 @@ h1 {
   font-size: 1.5em;
   position: absolute;
   transform: rotate(-270deg);
-  transition: transform 600ms;
+  transition: transform 600ms ease-in-out;
   top: 0;
   right: 0;
   bottom: 0;
@@ -119,26 +137,80 @@ h1 {
   align-items: center;
 }
 
-.descrip {
-  /*animation coche*/
-}
-.descrip:hover .descrip__menu {
-  width: 75%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.descrip:hover .descrip__prix {
-  transform: translateX(-80px);
-}
-.descrip:hover + .blocplat__valid {
+.blocplat:hover .blocplat__valid {
   transform: scaleX(1);
 }
-.descrip:hover + .blocplat__valid .fa-check-circle {
+.blocplat:hover .blocplat__valid .fa-check-circle {
   transform: rotate(0deg);
+}
+.blocplat:hover .blocplat__descrip__menu {
+  width: 75%;
+}
+.blocplat:hover .blocplat__descrip__prix {
+  transform: translateX(-80px);
 }
 
 /*animation apparition:voir dans mixins prop-big-block appliquée à entrées/plats/desserts*/
+.loading {
+  animation: disparition 5s linear both;
+  display: inline-block;
+  width: 100%;
+  margin: auto;
+}
+.loading__barres {
+  position: relative;
+  margin: 100px auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.loading__barres__element {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  margin: 20px;
+  border: solid 2px #c9abee;
+  background-color: #c9abee;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  opacity: 0%;
+  animation: mov 3s ease infinite;
+  transform-origin: -200% 50%;
+}
+.loading__barres__element--2 {
+  animation-delay: 400ms;
+}
+.loading__barres__element--3 {
+  animation-delay: 600ms;
+}
+.loading__barres__element--4 {
+  animation-delay: 800ms;
+}
+.loading__barres__element--5 {
+  animation-delay: 1000ms;
+}
+.loading__barres__element--6 {
+  animation-delay: 1200ms;
+}
+.loading__barres__element--7 {
+  animation-delay: 1400ms;
+}
+.loading__barres__element--8 {
+  animation-delay: 1600ms;
+}
+.loading__barres__element--9 {
+  animation-delay: 1800ms;
+}
+.loading__barres__element--10 {
+  animation-delay: 2000ms;
+}
+
+.contenu_accueil {
+  animation: apparition 2s linear 6s both;
+  display: inline-block;
+}
+
 header {
   height: 70px;
   position: relative;
@@ -158,11 +230,16 @@ header .fas {
 
 footer {
   background-color: #606060;
-  height: 200px;
   padding-top: 40px;
 }
+@media all and (min-width: 480px) {
+  footer {
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+}
 footer img {
-  width: 30%;
+  width: 10em;
   margin-left: 15px;
   margin-bottom: 15px;
   color: white;
@@ -171,8 +248,6 @@ footer .endlist {
   display: flex;
   flex-direction: column;
   color: white;
-  line-height: 170%;
-  margin-left: 15px;
 }
 footer .endlist__prop {
   display: flex;
@@ -189,6 +264,13 @@ footer .endlist i {
 }
 footer .endlist a {
   color: inherit;
+  margin: 15px;
+}
+@media all and (min-width: 480px) {
+  footer .endlist {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
 }
 
 aside, .fonctionnement a, #bloc_restaurants {
@@ -228,11 +310,19 @@ h2 {
 
 .fonctionnement {
   margin-top: 50px;
+  text-align: center;
 }
 .fonctionnement li {
   display: flex;
   counter-increment: li;
   margin-bottom: 30px;
+}
+@media all and (min-width: 480px) {
+  .fonctionnement li {
+    display: inline-block;
+    width: 26%;
+    margin: 20px;
+  }
 }
 .fonctionnement li::before {
   content: counter(li);
@@ -243,7 +333,7 @@ h2 {
   height: 30px;
   margin: auto;
   border: solid 2px #9356DC;
-  border-radius: 30px;
+  border-radius: 50%;
   background-color: #9356DC;
   font-size: 1.5em;
   color: white;
@@ -257,6 +347,7 @@ h2 {
   align-items: center;
   border-radius: 20px;
   margin-left: -20px;
+  border: green 2px solid;
   font-weight: bold;
   border-radius: 15px;
   box-shadow: 2px 2px 10px #D5CCC2;
@@ -274,11 +365,24 @@ h2 {
   padding-top: 50px;
   padding-bottom: 30px;
 }
+@media all and (min-width: 480px) {
+  #bloc_restaurants {
+    padding-top: 15px;
+    margin-top: 10px;
+  }
+}
 
 #restaurants {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+@media all and (min-width: 480px) {
+  #restaurants {
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
 }
 
 .element-resto {
@@ -293,6 +397,13 @@ h2 {
 .element-resto:hover {
   background-color: white;
   box-shadow: 3px 3px 20px #c1d0d0;
+}
+@media all and (min-width: 480px) {
+  .element-resto {
+    width: 40%;
+    overflow: hidden;
+    height: auto;
+  }
 }
 .element-resto img {
   height: 180px;
@@ -342,6 +453,13 @@ h2 {
   object-fit: cover;
   position: relative;
 }
+@media all and (min-width: 480px) {
+  .photo_resto img {
+    height: 1300px;
+    margin: 0px;
+    object-fit: cover;
+  }
+}
 
 .contenu {
   position: absolute;
@@ -364,14 +482,19 @@ h2 {
 .contenu__restos h2 {
   font-size: 1.2em;
 }
+@media all and (min-width: 480px) {
+  .contenu__restos {
+    margin-top: -150px;
+    max-width: 40%;
+    font-size: 0.8em;
+    border: blue 2px solid;
+    border-radius: 20px;
+    margin-top: -150px;
+  }
+}
 .contenu__restos__titre {
   width: 100%;
   padding: 20px;
-}
-.contenu__restos__titre i {
-  font-size: 30px;
-}
-.contenu__restos__titre {
   position: relative;
   display: flex;
 }
@@ -397,6 +520,9 @@ h2 {
   animation: apparition 1s both;
   /*apparition progressive à l'ouverture*/
 }
+.contenu__restos__titre i {
+  font-size: 30px;
+}
 
 /*je vais prendre*/
 .entrees, .plats, .desserts {
@@ -405,39 +531,10 @@ h2 {
   opacity: 0;
   animation: apparition 1s both;
   /*apparition progressive à l'ouverture*/
-  opacity: 0;
-  animation: apparition 1s both;
-  /*apparition progressive à l'ouverture*/
 }
 .entrees h2, .plats h2, .desserts h2 {
   text-transform: uppercase;
   font-weight: normal;
-}
-.entrees .descrip, .plats .descrip, .desserts .descrip {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 10px;
-}
-.entrees .descrip h3, .plats .descrip h3, .desserts .descrip h3 {
-  font-weight: bold;
-}
-.entrees .descrip__menu, .plats .descrip__menu, .desserts .descrip__menu {
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.entrees .descrip__prix, .plats .descrip__prix, .desserts .descrip__prix {
-  align-self: flex-end;
-  font-weight: bold;
-  transition: transform 600ms;
-  transform-origin: -150px;
-  position: absolute;
-  right: -50px;
 }
 
 .plats {
@@ -458,10 +555,52 @@ h2 {
   margin: 15px;
   box-shadow: 2px 2px 10px #D5CCC2;
   border-radius: 15px;
+  border: green solid 2px;
 }
 .blocplat:hover {
   background-color: white;
   box-shadow: 3px 3px 20px #c1d0d0;
+}
+@media all and (min-width: 480px) {
+  .blocplat {
+    height: 50px;
+  }
+}
+@media all and (min-width: 480px) {
+  .blocplat {
+    height: 60px;
+  }
+}
+.blocplat__descrip {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+}
+.blocplat__descrip h3 {
+  font-weight: bold;
+}
+.blocplat__descrip__menu {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.blocplat__descrip__menu h3, .blocplat__descrip__menu p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.blocplat__descrip__prix {
+  align-self: flex-end;
+  font-weight: bold;
+  transition: transform 600ms ease-in-out;
+  transform-origin: -150px;
+  position: absolute;
+  right: -50px;
 }
 
 .separation-line {
@@ -472,6 +611,7 @@ h2 {
 
 .second-btn {
   text-align: center;
+  border-radius: 20px;
 }
 
 /*# sourceMappingURL=styles.css.map */

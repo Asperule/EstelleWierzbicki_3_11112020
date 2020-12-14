@@ -1,3 +1,5 @@
+
+
 aside,.fonctionnement a, #bloc_restaurants { 
     background-color: $bg-color;
   }
@@ -31,10 +33,16 @@ h2{
       }
 .fonctionnement{
     margin-top: 50px;
+    text-align:center;
     li{
         display:flex;
         counter-increment:li;
         margin-bottom:30px;
+        @media all and (min-width: 480px){
+            display: inline-block;
+            width:26%;
+            margin:20px;
+        }
         &::before{
             content: counter(li);
             display: flex;
@@ -44,11 +52,14 @@ h2{
             height:30px;
             margin:auto;
             border: solid 2px $color-primary;
-            border-radius:30px;
+            border-radius:50%;
             background-color: $color-primary;
             font-size:1.5em;
             color: white;
             z-index: 1;
+            @media all and (min-width: 480px){
+                
+            }
         }
     }
     a {
@@ -59,7 +70,7 @@ h2{
         align-items: center;
         border-radius:20px;
         margin-left:-20px;
-        
+        border: green 2px solid;
         font-weight: bold;
         @include border-prop;
         @include border-shadow;
@@ -72,11 +83,20 @@ h2{
     margin-top:50px;
     padding-top:50px;
     padding-bottom:30px;
+    @media all and (min-width: 480px){
+        padding-top:15px;
+        margin-top:10px;
+    }
 }
 #restaurants{
     display:flex;
     flex-direction: column;
     align-items: center;
+    @media all and (min-width: 480px){
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
 }
 .element-resto {
     height:250px;
@@ -86,6 +106,11 @@ h2{
     @include border-prop;
     overflow:hidden;
     position:relative;
+    @media all and (min-width: 480px){
+        width:40%;
+        overflow: hidden;
+        height:auto;
+    }
     img {
         height:180px;
         width:100%;
@@ -101,7 +126,6 @@ h2{
             font-size: 1.5em;
             font-style: normal;
         }
-
      }
 }
 

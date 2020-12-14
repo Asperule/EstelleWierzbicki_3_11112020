@@ -27,3 +27,4 @@
 [1202/193421.430:ERROR:process_info.cc(551)] ReadProcessData failed
 [1202/193421.438:ERROR:process_reader_win.cc(123)] NtOpenThread: {Accès refusé} Un processus a demandé l’accès a un objet, mais il ne bénéficie pas des autorisations nécessaires. (0xc0000022)
 [1202/193421.438:ERROR:exception_snapshot_win.cc(99)] thread ID 7432 not found in process
+[1210/115223.276:ERROR:directory_reader_win.cc(43)] FindFirstFile: Le chemin d’accès spécifié est introuvable. (0x3)

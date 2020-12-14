@@ -1,9 +1,12 @@
 footer{
     background-color: #606060;
-    height: 200px;
     padding-top:40px;
+    @media all and (min-width: 480px){
+        padding-top:50px;
+        padding-bottom:30px;
+    }
     img{
-        width:30%;
+        width:10em;
         margin-left:15px;
         margin-bottom:15px;
         color:white;
@@ -12,8 +15,6 @@ footer{
         display: flex;
         flex-direction: column;
         color: white;
-        line-height:170%;
-        margin-left:15px;
         &__prop{
             display: flex;
             flex-direction: row;
@@ -29,6 +30,11 @@ footer{
         }
         a {
             color:inherit;
+            @include border-stand;
+        }
+        @media all and (min-width: 480px){
+            flex-direction: row;
+            justify-content: flex-start;
         }
     }
     

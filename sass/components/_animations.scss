@@ -1,20 +1,56 @@
-.descrip{/*animation coche*/
+.blocplat {
     &:hover{
-     .descrip__menu {
-         width:75%;
-         white-space:nowrap;
-         overflow:hidden;
-         text-overflow: ellipsis;
-     }
-     .descrip__prix {
-        transform: translateX(-80px);
-     }
-     + .blocplat__valid{
+        .blocplat{
+            &__valid{
             transform:scaleX(1);
-            .fa-check-circle{
-                transform: rotate(0deg);
-            }
-        }   
+                .fa-check-circle{
+                    transform: rotate(0deg);
+                     }
+                 }
+            &__descrip__menu {
+                width:75%;
+                }
+            &__descrip__prix {
+                transform: translateX(-80px);
+                }
+        }
     }
 }
 /*animation apparition:voir dans mixins prop-big-block appliquée à entrées/plats/desserts*/
+
+.loading{
+    animation: disparition 5s linear both;
+    display: inline-block;
+    width: 100%;
+    margin:auto;
+    &__barres{
+        position: relative;
+        margin: 100px auto;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        &__element{
+            position: absolute;
+            top:50%;
+            left:0%;
+            margin:20px;
+            border: solid 2px lighten(#9356DC,20%);
+            background-color:lighten(#9356DC,20%);
+            height: 20px;
+            width:20px;
+            border-radius: 50%;
+            opacity:0%;
+            animation: mov 3s ease infinite;
+            @for $i from 2 through 10 {
+                    &--#{$i} {
+                            animation-delay: 200ms * $i;
+                        }
+                }
+            transform-origin: -200% 50%;
+            }      
+    }
+}
+.contenu_accueil {
+    animation: apparition 2s linear 6s both;
+    display: inline-block;
+}

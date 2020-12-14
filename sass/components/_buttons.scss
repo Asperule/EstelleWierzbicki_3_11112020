@@ -28,12 +28,9 @@
         width:70px;
         height: 100%;
         background-color: $color-tertiary;
-        display:flex;
-        justify-content: center;
-        align-items:center;
         transform: scale(0,1);
         transform-origin: right 50%;
-        transition: transform 600ms 100ms;
+        transition: transform 1s ease-in-out;
         position:relative;
         overflow:hidden;
         .fa-check-circle{
@@ -42,7 +39,7 @@
             font-size: 1.5em;
            position: absolute;
            transform: rotate(-270deg);
-           transition: transform 600ms;
+           transition: transform 600ms ease-in-out;
           
     top: 0;
     right: 0;

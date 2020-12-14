@@ -1,0 +1,116 @@
+.photo_resto{
+    height:220px;
+    img{
+        width:100%;
+        object-fit: cover;
+        position: relative;
+        @media all and (min-width: 480px){
+            height:1300px;
+            margin:0px;
+            object-fit: cover;
+        }
+    }
+}
+.contenu{
+    position: absolute;
+        &__restos{
+                background-color: $bg-color;
+                max-width: 480px;
+                display:flex;
+                flex-direction:column;
+                border-top-left-radius:20px;
+                border-top-right-radius:20px;
+                position: relative; 
+                opacity:1;
+                
+                h1 {
+                    font-family: 'Cooper';
+                    font-size:1.8em;
+                    letter-spacing:-1px;
+                }
+                h2 {
+                    font-size:1.2em;
+                }
+                @media all and (min-width: 480px){
+                    margin-top:-150px;
+                    max-width:40%;
+                    font-size:0.8em;
+                    border: blue 2px solid;
+                    border-radius: 20px;
+                    margin-top:-150px;
+                }
+                &__titre{
+                    width:100%;
+                    padding:20px;
+                    @include btn-heart-gradient;  
+                    i {
+                        font-size:30px;
+                          }
+                        
+                    }  
+}
+}
+/*je vais prendre*/
+.entrees, .plats, .desserts {
+    height:300px;
+    margin-bottom:40px;
+    opacity:0;
+    @include anim-apparition;
+    h2 {
+        text-transform: uppercase;
+        font-weight:normal;
+    }
+}
+.plats {
+    animation-delay: 1s;
+}
+.desserts {
+    animation-delay: 2s;
+}
+.blocplat{
+    background-color:$btn-plats-color;
+    @include prop-middle-block;
+    @media all and (min-width: 480px){
+        height:60px;
+    }
+    &__descrip {
+        position: relative;
+        height:100%;
+        width:100%;
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        padding:10px;
+        h3{
+            font-weight:bold;
+        }
+        &__menu{
+            width:auto;
+            display:flex;
+            flex-direction:column;
+            justify-content: space-between;
+            h3,p {
+                white-space:nowrap;
+                overflow:hidden;
+                text-overflow: ellipsis;
+            }
+        }
+        &__prix{
+            align-self: flex-end;
+            font-weight:bold;
+            transition: transform 600ms ease-in-out;
+            transform-origin: -150px;
+            position:absolute;
+            right: -50px;
+        }   
+     }
+}
+.separation-line{
+    width: 3em;
+    border-top: solid 3px $color-tertiary;
+    @include border-stand;
+}
+.second-btn{
+    text-align: center;
+    border-radius: 20px;
+}
