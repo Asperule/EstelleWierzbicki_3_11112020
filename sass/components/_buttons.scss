@@ -7,16 +7,23 @@
     color:white;
     font-size:1em;
     cursor: pointer;
-    @include border-shadow;
+    box-shadow: 5px 5px 30px darken($btn-plats-color, 30%);
+    &:hover{
+         box-shadow: 3px 3px 20px darken($btn-plats-color, 50%);
+         /*font-weight: bold;*/
+    }
 }
 .linear-gradient{
     background: linear-gradient($color-primary, $color-secondary);
+    &:hover{
+        background: linear-gradient(darken($color-primary, 5%), darken($color-secondary, 5%));
+    }
 }
 .bouton_new{
     background-color: $color-tertiary;
     color:#0a6f52;
     padding:10px;
-    font-style: none;
+    font-style: normal;
     font-size: 0.9em;
     border-radius:2px;
     position:absolute;
@@ -25,34 +32,30 @@
   }
 .blocplat {
     &__valid{/*coche a animer*/
-        width:70px;
-        height: 100%;
+        position: relative;
+        right:-100px;
+        width:80px;
+        height: 80px;
         background-color: $color-tertiary;
-        transform: scale(0,1);
-        transform-origin: right 50%;
-        transition: transform 1s ease-in-out;
-        position:relative;
-        overflow:hidden;
+        transition: transform 600ms ease-in-out;
+        overflow: hidden;
         .fa-check-circle{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            font-size: 1.5em;
             background-color: $color-tertiary;
             color:white;
             font-size: 1.5em;
-           position: absolute;
-           transform: rotate(-270deg);
-           transition: transform 600ms ease-in-out;
-          
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
             }
     }
 }
+*:focus {
+      outline: none;
+  }
 
 
 

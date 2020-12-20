@@ -1,40 +1,40 @@
 footer{
-    background-color: #606060;
+    background-color: #393939;
     padding-top:40px;
+    color:white;
     @media all and (min-width: 480px){
-        padding-top:50px;
-        padding-bottom:30px;
+        padding-top:30px;
+        display:flex;
+        justify-content: flex-start;
     }
     img{
-        width:10em;
+        width:8em;
         margin-left:15px;
         margin-bottom:15px;
-        color:white;
+        color:inherit;
         }
     .endlist{
         display: flex;
         flex-direction: column;
-        color: white;
         &__prop{
             display: flex;
             flex-direction: row;
-            align-items: center;
             }
         &__part{
             display: flex;
             flex-direction: row;
-            align-items: center;
         }
         i{
-            margin-right:8px;
+            margin-right:10px;
         }
         a {
             color:inherit;
-            @include border-stand;
+            margin: 0px 20px 15px 15px;
         }
         @media all and (min-width: 480px){
             flex-direction: row;
-            justify-content: flex-start;
+        justify-content: space-around;
+        width: 100%;
         }
     }
     

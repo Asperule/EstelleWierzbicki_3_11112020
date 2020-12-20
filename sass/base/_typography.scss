@@ -1,23 +1,29 @@
 @font-face
   {
-    font-family: 'Raleway';
-    src: url('../polices/Raleway-VariableFont_wght.ttf') format('truetype');
-    
+    font-family: 'Roboto';
+    src: url('../polices/Roboto/Roboto-Regular.ttf') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
   }
 @font-face
 {
-  font-family: 'Cooper';
-    src: url('../polices/Cooper-Italic.ttf');
+  font-family: 'Shrikhand';
+    src: url('../polices/shrikhand/Shrikhand-Regular.otf') format('truetype');
 
   }
+
 a{
     text-decoration: none;
     color:black;
   }
 body {
-    font-family: 'Raleway';
+    font-family: 'Roboto';
+    font-style:normal;
+    color:black;
   }
 h1 {
     font-weight: bold;
     font-size: 2em;
   }
+  

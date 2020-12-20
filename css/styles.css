@@ -24,16 +24,24 @@
 }
 @keyframes mov {
   0% {
-    opacity: 0%;
-    transform: scale(1);
+    transform: rotate(0deg);
   }
   50% {
-    opacity: 50%;
-    transform: scale(1);
+    opacity: 1;
   }
   100% {
-    opacity: 0%;
-    transform: scale(1) rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(-360deg);
+  }
+  50% {
+    transform: rotate(-270deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
 * {
@@ -55,12 +63,14 @@
   }
 }
 @font-face {
-  font-family: "Raleway";
-  src: url("../polices/Raleway-VariableFont_wght.ttf") format("truetype");
+  font-family: "Roboto";
+  src: url("../polices/Roboto/Roboto-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-  font-family: "Cooper";
-  src: url("../polices/Cooper-Italic.ttf");
+  font-family: "Shrikhand";
+  src: url("../polices/shrikhand/Shrikhand-Regular.otf") format("truetype");
 }
 a {
   text-decoration: none;
@@ -68,7 +78,9 @@ a {
 }
 
 body {
-  font-family: "Raleway";
+  font-family: "Roboto";
+  font-style: normal;
+  color: black;
 }
 
 h1 {
@@ -85,22 +97,25 @@ h1 {
   color: white;
   font-size: 1em;
   cursor: pointer;
-  box-shadow: 2px 2px 10px #D5CCC2;
+  box-shadow: 5px 5px 30px #a4baba;
 }
 .main-btn:hover {
-  background-color: white;
-  box-shadow: 3px 3px 20px #c1d0d0;
+  box-shadow: 3px 3px 20px #6a8e8e;
+  /*font-weight: bold;*/
 }
 
 .linear-gradient {
   background: linear-gradient(#9356DC, #FF79DA);
+}
+.linear-gradient:hover {
+  background: linear-gradient(#8641d8, #ff60d3);
 }
 
 .bouton_new {
   background-color: #99E2D0;
   color: #0a6f52;
   padding: 10px;
-  font-style: none;
+  font-style: normal;
   font-size: 0.9em;
   border-radius: 2px;
   position: absolute;
@@ -110,105 +125,144 @@ h1 {
 
 .blocplat__valid {
   /*coche a animer*/
-  width: 70px;
-  height: 100%;
-  background-color: #99E2D0;
-  transform: scale(0, 1);
-  transform-origin: right 50%;
-  transition: transform 1s ease-in-out;
   position: relative;
+  right: -100px;
+  width: 80px;
+  height: 80px;
+  background-color: #99E2D0;
+  transition: transform 600ms ease-in-out;
   overflow: hidden;
 }
 .blocplat__valid .fa-check-circle {
-  background-color: #99E2D0;
-  color: white;
-  font-size: 1.5em;
-  position: absolute;
-  transform: rotate(-270deg);
-  transition: transform 600ms ease-in-out;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  font-size: 1.5em;
+  background-color: #99E2D0;
+  color: white;
+  font-size: 1.5em;
+}
+
+*:focus {
+  outline: none;
 }
 
 .blocplat:hover .blocplat__valid {
-  transform: scaleX(1);
+  transform: translateX(-100px);
 }
 .blocplat:hover .blocplat__valid .fa-check-circle {
-  transform: rotate(0deg);
+  animation: rotation 600ms ease;
 }
-.blocplat:hover .blocplat__descrip__menu {
+.blocplat:hover .blocplat__descrip {
   width: 75%;
 }
+.blocplat:hover .blocplat__descrip__menu {
+  width: 100%;
+}
+.blocplat:hover .blocplat__descrip__menu h3 {
+  overflow: hidden;
+}
+.blocplat:hover .blocplat__descrip__menu p {
+  width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .blocplat:hover .blocplat__descrip__prix {
-  transform: translateX(-80px);
+  transform: translateX(-60px);
 }
 
 /*animation apparition:voir dans mixins prop-big-block appliquée à entrées/plats/desserts*/
+/*.loading{
+    animation: disparition 7s linear both;
+    display: inline-block;
+    width: 100%;
+    margin:auto;
+    position: absolute;
+    &__barres{
+        position: relative;
+        margin: 100px auto;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        &__element{
+            position: absolute;
+            top:50%;
+            left:0%;
+            margin:20px;
+            border: solid 2px lighten(#9356DC,20%);
+            background-color:lighten(#9356DC,20%);
+            height: 20px;
+            width:20px;
+            border-radius: 50%;
+            opacity:0%;
+            animation: mov 3s linear infinite;
+            transform-origin:50% -150%;
+            }      
+    }
+}*/
 .loading {
-  animation: disparition 5s linear both;
-  display: inline-block;
+  position: absolute;
   width: 100%;
-  margin: auto;
+  margin-top: 300px;
 }
 .loading__barres {
   position: relative;
-  margin: 100px auto;
+  margin: auto;
   width: 100px;
   height: 100px;
-  border-radius: 50%;
 }
 .loading__barres__element {
   position: absolute;
-  top: 50%;
-  left: 0%;
-  margin: 20px;
+  margin: auto;
   border: solid 2px #c9abee;
   background-color: #c9abee;
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  opacity: 0%;
-  animation: mov 3s ease infinite;
-  transform-origin: -200% 50%;
+  opacity: 0;
+  animation: mov 2500ms ease-in-out 2;
+  transform-origin: 50% -400%;
+}
+.loading__barres__element--1 {
+  animation-delay: 100ms;
 }
 .loading__barres__element--2 {
-  animation-delay: 400ms;
+  animation-delay: 200ms;
 }
 .loading__barres__element--3 {
-  animation-delay: 600ms;
+  animation-delay: 300ms;
 }
 .loading__barres__element--4 {
-  animation-delay: 800ms;
+  animation-delay: 400ms;
 }
 .loading__barres__element--5 {
-  animation-delay: 1000ms;
+  animation-delay: 500ms;
 }
 .loading__barres__element--6 {
-  animation-delay: 1200ms;
+  animation-delay: 600ms;
 }
 .loading__barres__element--7 {
-  animation-delay: 1400ms;
+  animation-delay: 700ms;
 }
 .loading__barres__element--8 {
-  animation-delay: 1600ms;
+  animation-delay: 800ms;
 }
 .loading__barres__element--9 {
-  animation-delay: 1800ms;
+  animation-delay: 900ms;
 }
 .loading__barres__element--10 {
-  animation-delay: 2000ms;
+  animation-delay: 1000ms;
 }
 
 .contenu_accueil {
   animation: apparition 2s linear 6s both;
   display: inline-block;
+  position: absolute;
+  top: 5em;
 }
 
 header {
@@ -229,47 +283,47 @@ header .fas {
 }
 
 footer {
-  background-color: #606060;
+  background-color: #393939;
   padding-top: 40px;
+  color: white;
 }
 @media all and (min-width: 480px) {
   footer {
-    padding-top: 50px;
-    padding-bottom: 30px;
+    padding-top: 30px;
+    display: flex;
+    justify-content: flex-start;
   }
 }
 footer img {
-  width: 10em;
+  width: 8em;
   margin-left: 15px;
   margin-bottom: 15px;
-  color: white;
+  color: inherit;
 }
 footer .endlist {
   display: flex;
   flex-direction: column;
-  color: white;
 }
 footer .endlist__prop {
   display: flex;
   flex-direction: row;
-  align-items: center;
 }
 footer .endlist__part {
   display: flex;
   flex-direction: row;
-  align-items: center;
 }
 footer .endlist i {
-  margin-right: 8px;
+  margin-right: 10px;
 }
 footer .endlist a {
   color: inherit;
-  margin: 15px;
+  margin: 0px 20px 15px 15px;
 }
 @media all and (min-width: 480px) {
   footer .endlist {
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-around;
+    width: 100%;
   }
 }
 
@@ -304,8 +358,10 @@ aside form input::placeholder {
   color: black;
 }
 
-h2 {
-  margin: 15px;
+.contenu_accueil h2 {
+  border: solid 2px red;
+  margin: 20px;
+  text-align: left;
 }
 
 .fonctionnement {
@@ -320,17 +376,17 @@ h2 {
 @media all and (min-width: 480px) {
   .fonctionnement li {
     display: inline-block;
-    width: 26%;
     margin: 20px;
+    padding: 20px;
+    border: solid red 2px;
+    width: 20em;
   }
 }
 .fonctionnement li::before {
   content: counter(li);
-  display: flex;
-  justify-content: center;
-  align-self: start;
-  width: 30px;
-  height: 30px;
+  position: relative;
+  width: 1em;
+  height: 1em;
   margin: auto;
   border: solid 2px #9356DC;
   border-radius: 50%;
@@ -338,6 +394,13 @@ h2 {
   font-size: 1.5em;
   color: white;
   z-index: 1;
+  left: 15px;
+}
+@media all and (min-width: 480px) {
+  .fonctionnement li::before {
+    top: 0.5em;
+    width: 1.5em;
+  }
 }
 .fonctionnement a {
   height: 70px;
@@ -346,8 +409,6 @@ h2 {
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  margin-left: -20px;
-  border: green 2px solid;
   font-weight: bold;
   border-radius: 15px;
   box-shadow: 2px 2px 10px #D5CCC2;
@@ -388,7 +449,7 @@ h2 {
 .element-resto {
   height: 250px;
   background-color: #FBFCFC;
-  margin: 15px;
+  margin: 20px;
   box-shadow: 2px 2px 10px #D5CCC2;
   border-radius: 15px;
   overflow: hidden;
@@ -422,7 +483,11 @@ h2 {
   color: black;
   position: absolute;
   right: 15px;
-  font-style: normal;
+  opacity: 1;
+  border: solid 2px red;
+}
+.element-resto__contenu .empty:hover {
+  display: none;
 }
 .element-resto__contenu .gradient {
   background: -webkit-linear-gradient(#9356DC, #FF79DA);
@@ -431,14 +496,13 @@ h2 {
   position: absolute;
   right: 15px;
   opacity: 0;
+  border: solid 2px blue;
+}
+.element-resto__contenu .gradient:hover {
+  animation: apparition 1s both;
 }
 .element-resto__contenu i {
   font-size: 30px;
-}
-.element-resto__contenu .fa-heart:hover {
-  /*comment aurait il fallu designer .gradient pour qu'il soit la seule cible animation?*/
-  animation: apparition 1s both;
-  /*apparition progressive à l'ouverture*/
 }
 .element-resto__contenu i {
   font-size: 1.5em;
@@ -455,7 +519,7 @@ h2 {
 }
 @media all and (min-width: 480px) {
   .photo_resto img {
-    height: 1300px;
+    height: 1150px;
     margin: 0px;
     object-fit: cover;
   }
@@ -463,6 +527,7 @@ h2 {
 
 .contenu {
   position: absolute;
+  /*je vais prendre*/
 }
 .contenu__restos {
   background-color: #F2F2F2;
@@ -475,19 +540,21 @@ h2 {
   opacity: 1;
 }
 .contenu__restos h1 {
-  font-family: "Cooper";
-  font-size: 1.8em;
-  letter-spacing: -1px;
+  font-family: "Shrikhand";
+  font-size: 2em;
+  font-weight: normal;
 }
 .contenu__restos h2 {
-  font-size: 1.2em;
+  font-size: 1.3em;
+  font-weight: normal;
+  text-transform: uppercase;
+  margin: 30px 0px 5px 20px;
 }
 @media all and (min-width: 480px) {
   .contenu__restos {
     margin-top: -150px;
     max-width: 40%;
-    font-size: 0.8em;
-    border: blue 2px solid;
+    font-size: 0.9em;
     border-radius: 20px;
     margin-top: -150px;
   }
@@ -497,12 +564,17 @@ h2 {
   padding: 20px;
   position: relative;
   display: flex;
+  margin-top: 10px;
 }
 .contenu__restos__titre .empty {
   color: black;
   position: absolute;
   right: 15px;
-  font-style: normal;
+  opacity: 1;
+  border: solid 2px red;
+}
+.contenu__restos__titre .empty:hover {
+  display: none;
 }
 .contenu__restos__titre .gradient {
   background: -webkit-linear-gradient(#9356DC, #FF79DA);
@@ -511,30 +583,22 @@ h2 {
   position: absolute;
   right: 15px;
   opacity: 0;
+  border: solid 2px blue;
 }
-.contenu__restos__titre i {
-  font-size: 30px;
-}
-.contenu__restos__titre .fa-heart:hover {
-  /*comment aurait il fallu designer .gradient pour qu'il soit la seule cible animation?*/
+.contenu__restos__titre .gradient:hover {
   animation: apparition 1s both;
-  /*apparition progressive à l'ouverture*/
 }
 .contenu__restos__titre i {
   font-size: 30px;
 }
-
-/*je vais prendre*/
-.entrees, .plats, .desserts {
-  height: 300px;
-  margin-bottom: 40px;
+.contenu__restos__titre i {
+  font-size: 25px;
+  margin-right: 20px;
+}
+.contenu .entrees, .contenu .plats, .contenu .desserts {
   opacity: 0;
   animation: apparition 1s both;
   /*apparition progressive à l'ouverture*/
-}
-.entrees h2, .plats h2, .desserts h2 {
-  text-transform: uppercase;
-  font-weight: normal;
 }
 
 .plats {
@@ -547,24 +611,18 @@ h2 {
 
 .blocplat {
   background-color: #FBFCFC;
-  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
-  margin: 15px;
+  height: 80px;
+  margin: 20px;
   box-shadow: 2px 2px 10px #D5CCC2;
   border-radius: 15px;
-  border: green solid 2px;
 }
 .blocplat:hover {
   background-color: white;
   box-shadow: 3px 3px 20px #c1d0d0;
-}
-@media all and (min-width: 480px) {
-  .blocplat {
-    height: 50px;
-  }
 }
 @media all and (min-width: 480px) {
   .blocplat {
@@ -573,8 +631,8 @@ h2 {
 }
 .blocplat__descrip {
   position: relative;
+  width: 83%;
   height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -582,36 +640,39 @@ h2 {
 }
 .blocplat__descrip h3 {
   font-weight: bold;
+  font-size: 1.2em;
 }
 .blocplat__descrip__menu {
-  width: auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .blocplat__descrip__menu h3, .blocplat__descrip__menu p {
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+}
+.blocplat__descrip__menu p {
+  font-size: medium;
 }
 .blocplat__descrip__prix {
-  align-self: flex-end;
   font-weight: bold;
   transition: transform 600ms ease-in-out;
-  transform-origin: -150px;
   position: absolute;
-  right: -50px;
+  display: inline-block;
+  top: 60%;
+  right: -60px;
 }
 
 .separation-line {
   width: 3em;
   border-top: solid 3px #99E2D0;
-  margin: 15px;
+  margin-left: 20px;
 }
 
 .second-btn {
   text-align: center;
   border-radius: 20px;
+  margin: 10px 0px 30px 0px;
 }
 
 /*# sourceMappingURL=styles.css.map */

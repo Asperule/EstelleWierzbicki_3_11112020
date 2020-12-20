@@ -5,7 +5,7 @@
         object-fit: cover;
         position: relative;
         @media all and (min-width: 480px){
-            height:1300px;
+            height:1150px;
             margin:0px;
             object-fit: cover;
         }
@@ -14,51 +14,48 @@
 .contenu{
     position: absolute;
         &__restos{
-                background-color: $bg-color;
-                max-width: 480px;
-                display:flex;
-                flex-direction:column;
-                border-top-left-radius:20px;
-                border-top-right-radius:20px;
-                position: relative; 
-                opacity:1;
-                
-                h1 {
-                    font-family: 'Cooper';
-                    font-size:1.8em;
-                    letter-spacing:-1px;
+            background-color: $bg-color;
+            max-width: 480px;
+            display:flex;
+            flex-direction:column;
+            border-top-left-radius:20px;
+            border-top-right-radius:20px;
+            position: relative; 
+            opacity:1;
+            h1 {
+                font-family: 'Shrikhand';
+                font-size:2em;
+                font-weight:normal;
                 }
-                h2 {
-                    font-size:1.2em;
-                }
-                @media all and (min-width: 480px){
+            h2 {
+            font-size:1.3em;
+            font-weight: normal;
+            text-transform: uppercase;
+            margin: 30px 0px 5px 20px;
+}           @media all and (min-width: 480px){
                     margin-top:-150px;
                     max-width:40%;
-                    font-size:0.8em;
-                    border: blue 2px solid;
+                    font-size:0.9em;
                     border-radius: 20px;
                     margin-top:-150px;
                 }
-                &__titre{
+            &__titre{
                     width:100%;
                     padding:20px;
                     @include btn-heart-gradient;  
+                    
+                margin-top:10px;
                     i {
-                        font-size:30px;
+                        font-size:25px;
+                        margin-right:20px;
                           }
-                        
                     }  
-}
+    
 }
 /*je vais prendre*/
 .entrees, .plats, .desserts {
-    height:300px;
-    margin-bottom:40px;
     opacity:0;
     @include anim-apparition;
-    h2 {
-        text-transform: uppercase;
-        font-weight:normal;
     }
 }
 .plats {
@@ -69,48 +66,52 @@
 }
 .blocplat{
     background-color:$btn-plats-color;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
     @include prop-middle-block;
-    @media all and (min-width: 480px){
-        height:60px;
-    }
     &__descrip {
         position: relative;
+        width:83%;
         height:100%;
-        width:100%;
         display:flex;
         flex-direction:row;
         justify-content:space-between;
         padding:10px;
         h3{
             font-weight:bold;
+            font-size: 1.2em;
         }
         &__menu{
-            width:auto;
+            width:100%;
             display:flex;
             flex-direction:column;
-            justify-content: space-between;
-            h3,p {
-                white-space:nowrap;
+            justify-content: space-around;
+            h3, p{
                 overflow:hidden;
-                text-overflow: ellipsis;
             }
-        }
+            p {
+                font-size:medium;
+            }
+      }
         &__prix{
-            align-self: flex-end;
             font-weight:bold;
             transition: transform 600ms ease-in-out;
-            transform-origin: -150px;
             position:absolute;
-            right: -50px;
+            display:inline-block;
+            top:60%;
+            right: -60px;
         }   
      }
 }
 .separation-line{
     width: 3em;
     border-top: solid 3px $color-tertiary;
-    @include border-stand;
+    margin-left:20px;
 }
 .second-btn{
     text-align: center;
     border-radius: 20px;
+    margin:10px 0px 30px 0px;
 }
+
