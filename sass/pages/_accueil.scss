@@ -30,29 +30,33 @@ aside{
       }
 
 .contenu_accueil{
+    width:100%;
+    margin:auto;
+    animation: apparition 2s ease-in-out 6s both;
+    top: 5em;
     h2{
-        border:solid 2px red;
         @include border-stand;
-        text-align: left;
       }
     }
 .fonctionnement{
-    margin-top: 50px;
+    margin-top: 30px;
     text-align:center;
+    border:blue 2px solid;
     li{
         display:flex;
         counter-increment:li;
         margin-bottom:30px;
-        @media all and (min-width: 480px){
+        @include border-stand;
+        @media all and (min-width: 500px){
             display: inline-block;
             margin:20px;
             padding:20px;
-        border:solid red 2px;
-        width:20em;
+            width:20em;
         }
         &::before{
             content: counter(li);
-          position: relative;
+           display:flex;
+           justify-content:center;
             width:1em;
             height:1em;
             margin:auto;
@@ -62,10 +66,9 @@ aside{
             font-size:1.5em;
             color: white;
             z-index: 1;
-            left:15px;
-            @media all and (min-width: 480px){
+            @media all and (min-width: 500px){
+                position:relative;
                 top:0.5em;
-                width:1.5em;
             }
         }
     }
@@ -77,6 +80,7 @@ aside{
         align-items: center;
         border-radius:20px;
         font-weight: bold;
+        margin-left:-15px;
         @include border-prop;
         @include border-shadow;
         i{
@@ -104,7 +108,7 @@ aside{
     }
 }
 .element-resto {
-    height:250px;
+    height:270px;
     background-color:$btn-plats-color;
     @include border-stand;
     @include border-shadow;
@@ -124,12 +128,17 @@ aside{
     &__contenu{
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        margin:0px 15px 15px 15px;
+        margin:15px;
         @include btn-heart-gradient;
         i{
             font-size: 1.5em;
             font-style: normal;
+        }
+        h3{
+            margin-bottom:5px;
+        }
+        p{
+            font-size:1.1em;
         }
      }
 }

@@ -8,7 +8,7 @@
                      }
                  }
             &__descrip{
-                width: 75%;
+                width: 80%;
                 &__menu {
                     width:100%;
                     & h3 {
@@ -18,79 +18,53 @@
                         width:90%;
                         white-space:nowrap;
                         overflow:hidden;
-                        text-overflow: ellipsis;
-
+                        text-overflow: ellipsis; 
                     }
-                      }
+                }
                 &__prix {
-                transform: translateX(-60px);
+                transform: translateX(-80px);
                 }
         }
     }
     }
 }
-/*animation apparition:voir dans mixins prop-big-block appliquée à entrées/plats/desserts*/
-/*.loading{
-    animation: disparition 7s linear both;
-    display: inline-block;
+.loading {
+    position: absolute;
     width: 100%;
     margin:auto;
-    position: absolute;
-    &__barres{
-        position: relative;
-        margin: 100px auto;
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        &__element{
-            position: absolute;
-            top:50%;
-            left:0%;
-            margin:20px;
-            border: solid 2px lighten(#9356DC,20%);
-            background-color:lighten(#9356DC,20%);
-            height: 20px;
-            width:20px;
-            border-radius: 50%;
-            opacity:0%;
-            animation: mov 3s linear infinite;
-            transform-origin:50% -150%;
-            }      
-    }
-}*/
-.loading {
-    position:absolute;
-    width: 100%;
     margin-top:300px;
+    border:green 2px solid;
+    text-align:center;
  &__barres{
     position: relative;
-    margin:auto;
-    
+    margin:auto;    
     width: 100px;
     height: 100px;
+    border: red 2px solid;
     &__element{
         position: absolute;
-        margin: auto;
+        top:50%;
+        right:50%;
         border: solid 2px lighten(#9356DC,20%);
         background-color:lighten(#9356DC,20%);
         height: 20px;
         width:20px;
         border-radius: 50%;
         opacity:0;
-        animation: mov 2500ms ease-in-out 2;
+        animation: mov 2500ms paused 2;
         @for $i from 1 through 10 {
             &--#{$i} {
                     animation-delay: 100ms * $i;
                 }
         }
-        
          transform-origin: 50% -400%;
         }      
     }
-}
+}/*
 .contenu_accueil {
+    width:100%;
+    margin:auto;
     animation: apparition 2s linear 6s both;
-    display: inline-block;
     position: absolute;
     top: 5em;
-}
+}*/

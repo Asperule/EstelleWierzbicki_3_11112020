@@ -69,10 +69,11 @@
     display:flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
     @include prop-middle-block;
     &__descrip {
-        position: relative;
-        width:83%;
+        border:green solid 2px;
+        width:85%;
         height:100%;
         display:flex;
         flex-direction:row;
@@ -100,7 +101,7 @@
             position:absolute;
             display:inline-block;
             top:60%;
-            right: -60px;
+            right: 10px;
         }   
      }
 }
