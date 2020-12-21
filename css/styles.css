@@ -178,17 +178,15 @@ h1 {
 .loading {
   position: absolute;
   width: 100%;
+  max-width: 1280px;
   margin: auto;
   margin-top: 300px;
-  border: green 2px solid;
-  text-align: center;
 }
 .loading__barres {
   position: relative;
   margin: auto;
   width: 100px;
   height: 100px;
-  border: red 2px solid;
 }
 .loading__barres__element {
   position: absolute;
@@ -200,7 +198,7 @@ h1 {
   width: 20px;
   border-radius: 50%;
   opacity: 0;
-  animation: mov 2500ms paused 2;
+  animation: mov 2500ms ease-in-out 2;
   transform-origin: 50% -400%;
 }
 .loading__barres__element--1 {
@@ -348,20 +346,16 @@ aside form input::placeholder {
 .fonctionnement {
   margin-top: 30px;
   text-align: center;
-  border: blue 2px solid;
 }
 .fonctionnement li {
   display: flex;
   counter-increment: li;
-  margin-bottom: 30px;
-  margin: 20px;
+  margin: 10px;
 }
-@media all and (min-width: 500px) {
+@media all and (min-width: 550px) {
   .fonctionnement li {
     display: inline-block;
-    margin: 20px;
-    padding: 20px;
-    width: 20em;
+    width: 15em;
   }
 }
 .fonctionnement li::before {
@@ -378,13 +372,13 @@ aside form input::placeholder {
   color: white;
   z-index: 1;
 }
-@media all and (min-width: 500px) {
+@media all and (min-width: 550px) {
   .fonctionnement li::before {
     position: relative;
     top: 0.5em;
   }
 }
-.fonctionnement a {
+.fonctionnement li a {
   height: 70px;
   width: 100%;
   display: flex;
@@ -396,12 +390,13 @@ aside form input::placeholder {
   border-radius: 15px;
   box-shadow: 2px 2px 10px #D5CCC2;
 }
-.fonctionnement a:hover {
+.fonctionnement li a:hover {
   background-color: white;
   box-shadow: 3px 3px 20px #c1d0d0;
 }
-.fonctionnement a i {
+.fonctionnement li a i {
   margin-right: 30px;
+  margin-left: 0px;
 }
 
 #bloc_restaurants {
@@ -409,7 +404,7 @@ aside form input::placeholder {
   padding-top: 50px;
   padding-bottom: 30px;
 }
-@media all and (min-width: 480px) {
+@media all and (min-width: 550px) {
   #bloc_restaurants {
     padding-top: 15px;
     margin-top: 10px;
@@ -421,7 +416,7 @@ aside form input::placeholder {
   flex-direction: column;
   align-items: center;
 }
-@media all and (min-width: 480px) {
+@media all and (min-width: 550px) {
   #restaurants {
     flex-direction: row;
     justify-content: space-around;
@@ -442,7 +437,7 @@ aside form input::placeholder {
   background-color: white;
   box-shadow: 3px 3px 20px #c1d0d0;
 }
-@media all and (min-width: 480px) {
+@media all and (min-width: 500px) {
   .element-resto {
     width: 40%;
     overflow: hidden;
@@ -466,7 +461,7 @@ aside form input::placeholder {
   position: absolute;
   right: 15px;
   opacity: 1;
-  border: solid 2px red;
+  border: solid 2px #9356DC;
 }
 .element-resto__contenu .empty:hover {
   display: none;
@@ -478,7 +473,7 @@ aside form input::placeholder {
   position: absolute;
   right: 15px;
   opacity: 0;
-  border: solid 2px blue;
+  border: solid 2px #FF79DA;
 }
 .element-resto__contenu .gradient:hover {
   animation: apparition 1s both;
@@ -505,9 +500,9 @@ aside form input::placeholder {
   object-fit: cover;
   position: relative;
 }
-@media all and (min-width: 480px) {
+@media all and (min-width: 550px) {
   .photo_resto img {
-    height: 1150px;
+    height: 1300px;
     margin: 0px;
     object-fit: cover;
   }
@@ -541,7 +536,7 @@ aside form input::placeholder {
 @media all and (min-width: 480px) {
   .contenu__restos {
     margin-top: -150px;
-    max-width: 40%;
+    max-width: 45%;
     font-size: 0.9em;
     border-radius: 20px;
     margin-top: -150px;
@@ -559,7 +554,7 @@ aside form input::placeholder {
   position: absolute;
   right: 15px;
   opacity: 1;
-  border: solid 2px red;
+  border: solid 2px #9356DC;
 }
 .contenu__restos__titre .empty:hover {
   display: none;
@@ -571,7 +566,7 @@ aside form input::placeholder {
   position: absolute;
   right: 15px;
   opacity: 0;
-  border: solid 2px blue;
+  border: solid 2px #FF79DA;
 }
 .contenu__restos__titre .gradient:hover {
   animation: apparition 1s both;
@@ -613,13 +608,12 @@ aside form input::placeholder {
   background-color: white;
   box-shadow: 3px 3px 20px #c1d0d0;
 }
-@media all and (min-width: 480px) {
+@media all and (min-width: 550px) {
   .blocplat {
-    height: 60px;
+    height: 70px;
   }
 }
 .blocplat__descrip {
-  border: green solid 2px;
   width: 85%;
   height: 100%;
   display: flex;
@@ -639,6 +633,7 @@ aside form input::placeholder {
 }
 .blocplat__descrip__menu h3, .blocplat__descrip__menu p {
   overflow: hidden;
+  line-height: 90%;
 }
 .blocplat__descrip__menu p {
   font-size: medium;

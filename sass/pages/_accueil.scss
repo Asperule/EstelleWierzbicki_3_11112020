@@ -28,7 +28,6 @@ aside{
             }
         }
       }
-
 .contenu_accueil{
     width:100%;
     margin:auto;
@@ -40,23 +39,20 @@ aside{
     }
 .fonctionnement{
     margin-top: 30px;
-    text-align:center;
-    border:blue 2px solid;
+    text-align: center;
     li{
         display:flex;
         counter-increment:li;
-        margin-bottom:30px;
-        @include border-stand;
-        @media all and (min-width: 500px){
+        margin:10px;
+        @media all and (min-width: 550px){
             display: inline-block;
-            margin:20px;
-            padding:20px;
-            width:20em;
+            width:15em;
+            
         }
         &::before{
             content: counter(li);
-           display:flex;
-           justify-content:center;
+            display:flex;
+            justify-content:center;
             width:1em;
             height:1em;
             margin:auto;
@@ -66,10 +62,9 @@ aside{
             font-size:1.5em;
             color: white;
             z-index: 1;
-            @media all and (min-width: 500px){
-                position:relative;
-                top:0.5em;
-            }
+            @media all and (min-width: 550px){
+              position: relative;
+              top:0.5em;
         }
     }
     a {
@@ -85,14 +80,16 @@ aside{
         @include border-shadow;
         i{
             margin-right:30px;
+            margin-left:0px;
         }
     }
+}
 }
 #bloc_restaurants{
     margin-top:50px;
     padding-top:50px;
     padding-bottom:30px;
-    @media all and (min-width: 480px){
+    @media all and (min-width: 550px){
         padding-top:15px;
         margin-top:10px;
     }
@@ -101,7 +98,7 @@ aside{
     display:flex;
     flex-direction: column;
     align-items: center;
-    @media all and (min-width: 480px){
+    @media all and (min-width: 550px){
         flex-direction: row;
         justify-content: space-around;
         flex-wrap: wrap;
@@ -115,7 +112,7 @@ aside{
     @include border-prop;
     overflow:hidden;
     position:relative;
-    @media all and (min-width: 480px){
+    @media all and (min-width: 500px){
         width:40%;
         overflow: hidden;
         height:auto;

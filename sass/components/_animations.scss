@@ -24,23 +24,21 @@
                 &__prix {
                 transform: translateX(-80px);
                 }
+            }
         }
-    }
     }
 }
 .loading {
     position: absolute;
     width: 100%;
+    max-width:1280px;
     margin:auto;
     margin-top:300px;
-    border:green 2px solid;
-    text-align:center;
  &__barres{
     position: relative;
     margin:auto;    
     width: 100px;
     height: 100px;
-    border: red 2px solid;
     &__element{
         position: absolute;
         top:50%;
@@ -51,7 +49,7 @@
         width:20px;
         border-radius: 50%;
         opacity:0;
-        animation: mov 2500ms paused 2;
+        animation: mov 2500ms ease-in-out 2;
         @for $i from 1 through 10 {
             &--#{$i} {
                     animation-delay: 100ms * $i;

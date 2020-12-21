@@ -8,8 +8,8 @@ $apparition-duree: 1s;
     @include border-stand;
     @include border-shadow;
     @include border-prop;
-    @media all and (min-width: 480px){
-        height:60px;
+    @media all and (min-width: 550px){
+        height:70px;
     }
 }
 @mixin border-stand{
@@ -32,7 +32,7 @@ $apparition-duree: 1s;
         position: absolute;
         right: 15px;
         opacity:1;
-        border:solid 2px red;
+        border:solid 2px $color-primary;
         &:hover {
            display:none;
         }
@@ -44,12 +44,12 @@ $apparition-duree: 1s;
         position:absolute;
         right: 15px;
         opacity:0;  
-        border:solid 2px blue;
+        border:solid 2px $color-secondary;
         &:hover{
             animation: apparition 1s both;
         }
     }
     i {
-        font-size:30px;} 
-   
+        font-size:30px;
+    }
 }

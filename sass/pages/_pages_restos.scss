@@ -4,8 +4,8 @@
         width:100%;
         object-fit: cover;
         position: relative;
-        @media all and (min-width: 480px){
-            height:1150px;
+        @media all and (min-width: 550px){
+            height:1300px;
             margin:0px;
             object-fit: cover;
         }
@@ -34,7 +34,7 @@
             margin: 30px 0px 5px 20px;
 }           @media all and (min-width: 480px){
                     margin-top:-150px;
-                    max-width:40%;
+                    max-width:45%;
                     font-size:0.9em;
                     border-radius: 20px;
                     margin-top:-150px;
@@ -72,7 +72,6 @@
     position: relative;
     @include prop-middle-block;
     &__descrip {
-        border:green solid 2px;
         width:85%;
         height:100%;
         display:flex;
@@ -90,6 +89,7 @@
             justify-content: space-around;
             h3, p{
                 overflow:hidden;
+                line-height: 90%;
             }
             p {
                 font-size:medium;
