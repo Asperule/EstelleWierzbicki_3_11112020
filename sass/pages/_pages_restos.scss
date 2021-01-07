@@ -22,6 +22,17 @@
             border-top-right-radius:20px;
             position: relative; 
             opacity:1;
+            /*je vais prendre*/
+            .entrees, .plats, .desserts {
+            opacity:0;
+            animation: apparition 2s both;/*apparition progressive à l'ouverture*/
+             }
+             .plats {
+                animation-delay: 1s;
+            }
+            .desserts {
+                animation-delay: 2s;
+            }
             h1 {
                 font-family: 'Shrikhand';
                 font-size:2em;
@@ -52,11 +63,7 @@
                           }                    
                     }
 }
-/*je vais prendre*/
-.entrees, .plats, .desserts {
-    opacity:0;
-    @include anim-apparition;
-    }
+
 }
 .plats {
     animation-delay: 1s;

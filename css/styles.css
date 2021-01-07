@@ -496,9 +496,6 @@ aside form input::placeholder {
 .element-resto__contenu p {
   font-size: 1.1em;
 }
-.element-resto__contenu + .heart-growing {
-  margin-right: 10px;
-}
 
 .photo_resto {
   height: 220px;
@@ -518,7 +515,6 @@ aside form input::placeholder {
 
 .contenu {
   position: absolute;
-  /*je vais prendre*/
 }
 .contenu__restos {
   background-color: #F2F2F2;
@@ -529,6 +525,18 @@ aside form input::placeholder {
   border-top-right-radius: 20px;
   position: relative;
   opacity: 1;
+  /*je vais prendre*/
+}
+.contenu__restos .entrees, .contenu__restos .plats, .contenu__restos .desserts {
+  opacity: 0;
+  animation: apparition 2s both;
+  /*apparition progressive à l'ouverture*/
+}
+.contenu__restos .plats {
+  animation-delay: 1s;
+}
+.contenu__restos .desserts {
+  animation-delay: 2s;
 }
 .contenu__restos h1 {
   font-family: "Shrikhand";
@@ -560,11 +568,6 @@ aside form input::placeholder {
 .contenu__restos__titre i {
   font-size: 25px;
   margin-right: 20px;
-}
-.contenu .entrees, .contenu .plats, .contenu .desserts {
-  opacity: 0;
-  animation: apparition 1s both;
-  /*apparition progressive à l'ouverture*/
 }
 
 .plats {
