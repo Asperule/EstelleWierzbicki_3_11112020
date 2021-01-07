@@ -1,4 +1,8 @@
 @charset "UTF-8";
+i {
+  font-size: 30px;
+}
+
 @keyframes apparition {
   from {
     opacity: 0;
@@ -64,13 +68,13 @@
 }
 @font-face {
   font-family: "Roboto";
-  src: url("../polices/Roboto/Roboto-Regular.ttf") format("truetype");
+  src: url("../polices/Roboto-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Shrikhand";
-  src: url("../polices/shrikhand/Shrikhand-Regular.otf") format("truetype");
+  src: url("../polices/Shrikhand-Regular.otf") format("truetype");
 }
 a {
   text-decoration: none;
@@ -148,6 +152,34 @@ h1 {
 
 *:focus {
   outline: none;
+}
+
+.heart-growing {
+  width: 25px;
+}
+.heart-growing__empty {
+  color: black;
+  display: block;
+  position: absolute;
+  right: 10px;
+  opacity: 1;
+  transition-property: opacity;
+  transition-duration: 2s;
+}
+.heart-growing__gradient {
+  background: -webkit-linear-gradient(#9356DC, #FF79DA);
+  color: transparent;
+  -webkit-background-clip: text;
+  position: absolute;
+  right: 10px;
+  opacity: 0;
+  display: block;
+}
+.heart-growing:hover > .heart-growing__gradient {
+  animation: apparition 2s both;
+}
+.heart-growing:hover > .heart-growing__empty {
+  opacity: 0;
 }
 
 .blocplat:hover .blocplat__valid {
@@ -453,33 +485,6 @@ aside form input::placeholder {
   display: flex;
   justify-content: space-between;
   margin: 15px;
-  position: relative;
-  display: flex;
-}
-.element-resto__contenu .empty {
-  color: black;
-  position: absolute;
-  right: 15px;
-  opacity: 1;
-  border: solid 2px #9356DC;
-}
-.element-resto__contenu .empty:hover {
-  display: none;
-}
-.element-resto__contenu .gradient {
-  background: -webkit-linear-gradient(#9356DC, #FF79DA);
-  color: transparent;
-  -webkit-background-clip: text;
-  position: absolute;
-  right: 15px;
-  opacity: 0;
-  border: solid 2px #FF79DA;
-}
-.element-resto__contenu .gradient:hover {
-  animation: apparition 1s both;
-}
-.element-resto__contenu i {
-  font-size: 30px;
 }
 .element-resto__contenu i {
   font-size: 1.5em;
@@ -490,6 +495,9 @@ aside form input::placeholder {
 }
 .element-resto__contenu p {
   font-size: 1.1em;
+}
+.element-resto__contenu + .heart-growing {
+  margin-right: 10px;
 }
 
 .photo_resto {
@@ -545,34 +553,9 @@ aside form input::placeholder {
 .contenu__restos__titre {
   width: 100%;
   padding: 20px;
-  position: relative;
-  display: flex;
   margin-top: 10px;
-}
-.contenu__restos__titre .empty {
-  color: black;
-  position: absolute;
-  right: 15px;
-  opacity: 1;
-  border: solid 2px #9356DC;
-}
-.contenu__restos__titre .empty:hover {
-  display: none;
-}
-.contenu__restos__titre .gradient {
-  background: -webkit-linear-gradient(#9356DC, #FF79DA);
-  color: transparent;
-  -webkit-background-clip: text;
-  position: absolute;
-  right: 15px;
-  opacity: 0;
-  border: solid 2px #FF79DA;
-}
-.contenu__restos__titre .gradient:hover {
-  animation: apparition 1s both;
-}
-.contenu__restos__titre i {
-  font-size: 30px;
+  display: flex;
+  justify-content: space-between;
 }
 .contenu__restos__titre i {
   font-size: 25px;

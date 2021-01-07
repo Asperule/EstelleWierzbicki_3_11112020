@@ -1,5 +1,3 @@
-
-
 aside,.fonctionnement a, #bloc_restaurants { 
     background-color: $bg-color;
   }
@@ -126,7 +124,6 @@ aside{
         display: flex;
         justify-content: space-between;
         margin:15px;
-        @include btn-heart-gradient;
         i{
             font-size: 1.5em;
             font-style: normal;
@@ -136,6 +133,9 @@ aside{
         }
         p{
             font-size:1.1em;
+        }
+        + .heart-growing {
+            margin-right: 10px;
         }
      }
 }

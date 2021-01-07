@@ -56,6 +56,34 @@
 *:focus {
       outline: none;
   }
-
+.heart-growing {        
+    width:25px;                   
+    &__empty{
+        color:black;
+        display: block;
+        position: absolute;
+        right: 10px;
+        opacity: 1;
+        transition-property: opacity;
+        transition-duration: 2s;
+        }
+    &__gradient{
+        background: -webkit-linear-gradient($color-primary, $color-secondary);
+        color: transparent;
+        -webkit-background-clip: text;
+        position:absolute;
+        right:10px;
+        opacity:0;  
+        display: block;    
+            }
+        &:hover{ 
+            > .heart-growing__gradient{
+                animation: apparition 2s both;
+                    }
+            > .heart-growing__empty {
+                opacity: 0;
+                    }
+        }
+}
 
 
